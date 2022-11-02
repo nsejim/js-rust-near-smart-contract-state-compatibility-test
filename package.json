@@ -1,0 +1,24 @@
+{
+  "name": "rust-js-data-compatibility",
+  "version": "1.0.0",
+  "license": "(MIT AND Apache-2.0)",
+  "scripts": {
+    "deploy:js": "cd contracts && cd js && npm run deploy",
+    "deploy:rust": "cd contracts && cd rust && ./deploy.sh",
+    "build": "npm run build:js && npm run build:rust",
+    "build:js": "npm run build:contract:js",
+    "build:rust": "npm run build:contract:rust",
+    "build:contract:js": "cd contracts && cd js && npm run build",
+    "build:contract:rust": "cd contracts && cd rust && ./build.sh",
+    "test": "npm run test:unit:js && npm run test:unit:rust && npm run test:integration:js && npm run test:integration:rust",
+    "test:unit:js": "cd contracts && cd js && npm test",
+    "test:unit:rust": "cd contracts && cd rust && cargo test",
+    "test:integration:js": "cd integration-tests && cd js && npm test -- -- \"./contracts/js/build/rust_js_data_compatibility.wasm\"",
+    "test:integration:rust": "cd integration-tests && cd rust && cargo run --example integration-tests \"./contracts/rust/target/wasm32-unknown-unknown/release/rust_js_data_compatibility.wasm\"",
+    "postinstall": "echo no frontend && echo rs tests && echo rs contract && cd integration-tests && npm install && cd .. && cd contracts && cd js && npm install"
+  },
+  "devDependencies": {
+    "near-cli": "^3.3.0"
+  },
+  "dependencies": {}
+}
