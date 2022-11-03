@@ -1,6 +1,9 @@
 # Introduction 
 
-This repo tests if RUST and JS smart contracts can share the same state under the same contract account. The response is NO. The reason is that the two SDKs save data in a different way.
+This repo tests if RUST and JS smart contracts can by default share the same contract's state since at the end of the day they both run on NEAR blockchain as WASM code. 
+
+By default, the response is NO. The reason is that the two SDKs save data in a different way. 
+A solution could be a converter from the state structure from one SDK to another.
 
 To test that, first we deploy a JS smart contract, change the state and then deploy a RUST smart contract and try to read the state.
 
