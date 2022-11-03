@@ -41,10 +41,11 @@ Build and deploy your RURST contract to TestNet on the same dev account:
 
 near view dev-1667426209688-37311552113285 get_greeting  
 
+<pre>
 The contract will panick due a deserialization bug.
-
-JS and RUST smart contracts cannot share the same states by default due to serialization/deserialization of the contract state by JS contracts.
-
+JS and RUST smart contracts cannot share the same state by default 
+due to the state serialization/deserialization feature by JS contracts.
+</pre>
 
 
 
